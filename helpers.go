@@ -255,17 +255,18 @@ func perfstatdiskadapter2diskadapter(n *C.perfstat_diskadapter_t) DiskAdapter {
 	d.DkBSize = int64(n.dk_bsize)
 	d.DkRserv = int64(n.dk_rserv)
 	d.DkWserv = int64(n.dk_wserv)
-	d.MinRserv = int64(n.min_rserv)
-	d.MaxRserv = int64(n.max_rserv)
-	d.MinWserv = int64(n.min_wserv)
-	d.MaxWserv = int64(n.max_wserv)
-	d.WqDepth = int64(n.wq_depth)
-	d.WqSampled = int64(n.wq_sampled)
-	d.WqTime = int64(n.wq_time)
-	d.WqMinTime = int64(n.wq_min_time)
-	d.WqMaxTime = int64(n.wq_max_time)
-	d.QFull = int64(n.q_full)
-	d.QSampled = int64(n.q_sampled)
+	// fields below require AIX 7.2 TL1+ - zeroed for backwards compatibility
+	d.MinRserv = 0
+	d.MaxRserv = 0
+	d.MinWserv = 0
+	d.MaxWserv = 0
+	d.WqDepth = 0
+	d.WqSampled = 0
+	d.WqTime = 0
+	d.WqMinTime = 0
+	d.WqMaxTime = 0
+	d.QFull = 0
+	d.QSampled = 0
 
 	return d
 }
