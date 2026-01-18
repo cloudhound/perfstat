@@ -1,4 +1,4 @@
-module github.com/power-devops/perfstat
+module github.com/cloudhound/perfstat
 
 go 1.14
 
